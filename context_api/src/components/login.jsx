@@ -1,5 +1,6 @@
 import React, { useState, useContext } from "react";
 import UserContext from "../context/userContext";
+
 function Login() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -18,7 +19,7 @@ function Login() {
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         placeholder="username"
-      />
+      />{" "}
       <input
         type="text"
         value={password}
@@ -29,4 +30,5 @@ function Login() {
     </div>
   );
 }
+
 export default Login;

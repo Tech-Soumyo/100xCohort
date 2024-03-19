@@ -4,9 +4,9 @@ import UserContext from "./userContext";
 const UserContextProvider = ({ children }) => {
   const [user, setUser] = React.useState(null);
   return (
-    <>
-      <UserContext.Provider>{children}</UserContext.Provider>
-    </>
+    <UserContext.Provider value={{ user, setUser }}>
+      {children}
+    </UserContext.Provider>
   );
 };
 
