@@ -1,10 +1,18 @@
-import { useState } from "react";
-import reactLogo from "./assets/react.svg";
-import viteLogo from "/vite.svg";
 import "./App.css";
+import Login from "./components/login.jsx";
+import Profile from "./components/profile.jsx";
+import UserContextProvider from "./context/userContextProvider";
 
 function App() {
-  return <>About Context Api</>;
+  return (
+    <>
+      <UserContextProvider>
+        <h1>About Context Api</h1>
+      </UserContextProvider>
+      <Login />
+      <Profile />
+    </>
+  );
 }
 
 export default App;
