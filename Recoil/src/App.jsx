@@ -5,6 +5,7 @@ import {
   useSetRecoilState,
 } from "recoil";
 import { countAtom } from "./store/atoms/count";
+import { evenSelector } from "./store/atoms/count";
 import { useState } from "react";
 function App() {
   const [count, setCount] = useState(0);
