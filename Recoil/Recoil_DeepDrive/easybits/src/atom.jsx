@@ -20,6 +20,11 @@ export const messagingAtom = atom({
   default: 0,
 });
 
+export const addAtom = atom({
+  key: "addAtom",
+  default: 0,
+});
+
 export const totalNotificationSelector = selector({
   key: "totalNotificationSelector",
   get: ({ get }) => {
