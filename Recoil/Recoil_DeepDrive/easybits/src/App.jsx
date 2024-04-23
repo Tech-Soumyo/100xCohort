@@ -1,4 +1,6 @@
 import "./App.css";
+import { useEffect } from "react";
+import axios from "axios";  
 import {
   RecoilRoot,
   useRecoilState,
@@ -13,6 +15,7 @@ import {
   notificationsAtom,
   totalNotificationSelector,
   addAtom,
+  notifications,
 } from "./atom";
 function App() {
   return (
@@ -27,9 +30,23 @@ function MainApp() {
   const jobsCount = useRecoilValue(jobsAtom);
   const messagingCount = useRecoilValue(messagingAtom);
   const notificationsCount = useRecoilValue(notificationsAtom);
-  const totalNotiCount = useRecoilValue(totalNotificationSelector);
 
   // useRecoilState is alternative of useState hook. It is dynamic. If one have to place a button as a differnt component then It is the only option we have
+
+  const totalNotiCount = useRecoilValue(totalNotificationSelector);
+  // const totalNotificationCount = useMemo(() => {
+  //   return networkNotificationCount + jobsAtomCount + notificationsAtomCount + messagingAtomCount;
+  // }, [networkNotificationCount, jobsAtomCount, notificationsAtomCount, messagingAtomCount])
+
+  const [networkCount, setNetworkCount] = useRecoilState(notifications);
+  const totalNotificationCount = useRecoilValue(totalNotificationSelector);
+
+  useEffect(() => {
+    // fetch
+    axios.get("https://sum-server.100xdevs.com/notifications").then((res) => {
+      setNetworkCount(res.data);
+    });
+  }, []);
 
   return (
     <>
@@ -42,6 +59,7 @@ function MainApp() {
       <button>Messaging {messagingCount}</button>
       <button>Notifications {notificationsCount}</button>
       <button>Me {totalNotiCount}</button>
+      <button>Me1 {totalNotificationCount}</button>
       <ButtonHook />
     </>
   );
