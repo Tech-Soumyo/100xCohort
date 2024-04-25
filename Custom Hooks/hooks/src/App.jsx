@@ -165,31 +165,44 @@ import "./App.css";
 // export default App;
 
 // useMousePointer custom hook
-const useMousePointer = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
+// const useMousePointer = () => {
+//   const [position, setPosition] = useState({ x: 0, y: 0 });
 
-  const handleMouseMove = (e) => {
-    setPosition({ x: e.clientX, y: e.clientY });
-  };
+//   const handleMouseMove = (e) => {
+//     setPosition({ x: e.clientX, y: e.clientY });
+//   };
 
+//   useEffect(() => {
+//     window.addEventListener("mousemove", handleMouseMove);
+//     return () => {
+//       window.removeEventListener("mousemove", handleMouseMove);
+//     };
+//   }, []);
+
+//   return position;
+// };
+
+// function App() {
+//   const mousePointer = useMousePointer();
+
+//   return (
+//     <>
+//       Your mouse position is {mousePointer.x} {mousePointer.y}
+//     </>
+//   );
+// }
+
+// export default App;
+
+// useInterval hook
+
+function useInterval(fn, timeout) {
   useEffect(() => {
-    window.addEventListener("mousemove", handleMouseMove);
+    setInterval(() => {
+      fn();
+    }, timeout);
     return () => {
-      window.removeEventListener("mousemove", handleMouseMove);
+      clean;
     };
   }, []);
-
-  return position;
-};
-
-function App() {
-  const mousePointer = useMousePointer();
-
-  return (
-    <>
-      Your mouse position is {mousePointer.x} {mousePointer.y}
-    </>
-  );
 }
-
-export default App;
