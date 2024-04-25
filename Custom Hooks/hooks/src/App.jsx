@@ -143,20 +143,51 @@ import "./App.css";
 
 // export default App;
 
-const useIsOnline = () => {
-  const [isonline, setIsOnline] = useState(window.navigator.onLine);
+// useIsOnline custom hook
+// const useIsOnline = () => {
+//   const [isonline, setIsOnline] = useState(window.navigator.onLine);
+//   useEffect(() => {
+//     window.addEventListener("online", () => setIsOnline(true));
+//     window.addEventListener("offline", () => setIsOnline(false));
+//   }, []);
+//   return isonline;
+// };
+
+// function App() {
+//   const isonline = useIsOnline();
+//   return (
+//     <>
+//       <div>{isonline ? "user Is Online" : "user Is offline"}</div>
+//     </>
+//   );
+// }
+
+// export default App;
+
+// useMousePointer custom hook
+const useMousePointer = () => {
+  const [position, setPosition] = useState({ x: 0, y: 0 });
+
+  const handleMouseMove = (e) => {
+    setPosition({ x: e.clientX, y: e.clientY });
+  };
+
   useEffect(() => {
-    window.addEventListener("online", () => setIsOnline(true));
-    window.addEventListener("offline", () => setIsOnline(false));
+    window.addEventListener("mousemove", handleMouseMove);
+    return () => {
+      window.removeEventListener("mousemove", handleMouseMove);
+    };
   }, []);
-  return isonline;
+
+  return position;
 };
 
 function App() {
-  const isonline = useIsOnline();
+  const mousePointer = useMousePointer();
+
   return (
     <>
-      <div>{isonline ? "user Is Online" : "user Is offline"}</div>
+      Your mouse position is {mousePointer.x} {mousePointer.y}
     </>
   );
 }
