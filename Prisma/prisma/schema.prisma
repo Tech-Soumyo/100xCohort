@@ -12,3 +12,18 @@ datasource db {
   provider = "postgresql"
   url      = "postgresql://postgres:mysecretpassword@localhost/postgres"
 }
+
+model User {
+  id Int @id @default(autoincrement())
+  email String @unique
+  firstName String
+  lastName String?
+  passWord String
+}
+
+model Todo {
+  id Int @id @default(autoincrement())
+  title String
+  done Boolean @default(false)
+  description String?
+}
