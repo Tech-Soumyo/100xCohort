@@ -196,25 +196,25 @@ import "./App.css";
 
 // useInterval hook
 
-function useInterval(fn, timeout) {
-  useEffect(() => {
-    setInterval(() => {
-      fn();
-    }, timeout);
-    return () => {
-      clean;
-    };
-  }, []);
-}
+// function useInterval(fn, timeout) {
+//   useEffect(() => {
+//     setInterval(() => {
+//       fn();
+//     }, timeout);
+//     return () => {
+//       clean;
+//     };
+//   }, []);
+// }
 
-function App() {
-  const [count, setCount] = useState(0);
+// function App() {
+//   const [count, setCount] = useState(0);
 
-  useInterval(() => {
-    setCount((c) => c + 1);
-  }, 1000);
+//   useInterval(() => {
+//     setCount((c) => c + 1);
+//   }, 1000);
 
-  return <>Timer is at {count}</>;
-}
+//   return <>Timer is at {count}</>;
+// }
 
-export default App;
+// export default App;
