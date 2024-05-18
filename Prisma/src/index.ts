@@ -23,4 +23,4 @@ async function insertUser(
   console.log(res);
 }
 
-insertUser("soumyo.tech.deep@gmail.com", "753896", "Soumyo", "Deep");
+insertUser("soumyo1.tech.deep@gmail.com", "753896", "Soumyo", "Deep");
