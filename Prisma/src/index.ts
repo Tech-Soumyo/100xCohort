@@ -3,20 +3,24 @@ import { PrismaClient } from "@prisma/client";
 const prisma = new PrismaClient();
 
 async function insertUser(
-  username: string,
+  userName: string,
   password: string,
   firstName: string,
   lastName: string
 ) {
   const res = await prisma.user.create({
     data: {
-      email: username,
+      email: userName,
       passWord: password,
       firstName,
       lastName,
+    },
+    select: {
+      id: true,
+      passWord: true,
     },
   });
   console.log(res);
 }
 
-insertUser("admin1", "123456", "harkirat", "singh");
+insertUser("soumyo.tech.deep@gmail.com", "753896", "Soumyo", "Deep");
