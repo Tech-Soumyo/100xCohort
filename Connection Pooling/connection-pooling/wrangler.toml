@@ -19,6 +19,8 @@ compatibility_flags = ["nodejs_compat"]
 # [vars]
 # MY_VARIABLE = "production_value"
 
+DATABASE_URL= "prisma://accelerate.prisma-data.net/?api_key=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhcGlfa2V5IjoiNTE2NjhjMWMtOWI1Zi00NzhkLThkMDktYjM4ZTg2M2Q1MDhkIiwidGVuYW50X2lkIjoiYzdjOGE2YTczOGFlYjhmNDc2MjhlMzY1YTUyMTdiZGFhYjRlMTc1ZjFiNGE2YmNlMGQ5NjdiZDIzNjQyYmQ5ZCIsImludGVybmFsX3NlY3JldCI6Ijc1MGQwMzI0LTU3ZmMtNGQ4MS1hOWFiLWI1YTI1NGJhZTI5MiJ9.zmH6DsGg3MmS3ORY98JkoeKbbOBaLmBoIb2nrVnITpM"
+
 # Bind the Workers AI model catalog. Run machine learning models, powered by serverless GPUs, on Cloudflare’s global network
 # Docs: https://developers.cloudflare.com/workers/wrangler/configuration/#workers-ai
 # [ai]
