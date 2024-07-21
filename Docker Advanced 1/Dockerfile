@@ -22,6 +22,8 @@ COPY  package* .
 COPY ./prisma .
 
 RUN npm install
+
+COPY ./prisma .
 RUN npx prisma generate
 
 COPY . .
